@@ -2,6 +2,30 @@ var baseCSS = document.createElement('link');
 baseCSS.rel = "stylesheet";
 baseCSS.type = "text/css";
 baseCSS.href = "base.css";
+let create = document.querySelector(".submit-button");
+const openModal = document.querySelectorAll(".list-element");
+const closeModal = document.querySelector(".closeModal");
+
+const modal = document.querySelector(".modal");
+
+
+openModal.forEach((item) => {
+  item.addEventListener("click", () => {
+    
+    modal.showModal();  
+    modal.classList.add("display-modal");
+
+  })
+})
+
+
+closeModal.addEventListener("click", () => {
+  modal.close();
+  modal.classList.remove("display-modal");
+})
+
+
+
 
 function deleteNote(noteId) {
     fetch("/delete-note", {
@@ -9,21 +33,13 @@ function deleteNote(noteId) {
       body: JSON.stringify({ noteId: noteId }),
     }).then((_res) => {
       window.location.href = "/";
-    });
+    })
+
+  
   }
 
 
 
-  function changeColor(colorId){
-    fetch("/color-change", method="POST", {
-      method: "POST",
-      body: JSON.stringify({ colorId: colorId}),
-    }).then((_res) => { 
-      baseCSS.getElementById('sitecolor').style.color = '#' + colorId
-    });
-
-    //window.location.href = this.location;
-  }
 
 
   const nav = document.querySelector(".centerNav");
@@ -49,20 +65,38 @@ function deleteNote(noteId) {
 
       contents.forEach((content) => {
         content.classList.remove('is-active');
+        
+
       });
 
       tabs.forEach((tab) => {
         tab.classList.remove('is-active');
+
       });
       
+      
+
       contents[index].classList.add('is-active');
       tabs[index].classList.add('is-active');
+     
+      if(tab.id == "write"){
+        create.classList.add('submit-active');
+      }else{
+        create.classList.remove('submit-active');
+      }
+
     });
+    
+   
     
 
 
-
   });
+
+  let today = new Date().toISOString().substr(0, 10);
+  document.querySelector("#date").value = today;
+
+
 
   
 

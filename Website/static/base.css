@@ -100,7 +100,7 @@ input:focus{
 
 /* main area of tabs */
 .tab-list{
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     top: 0%;
     left: 100%;
@@ -110,7 +110,7 @@ input:focus{
     flex-direction: column;
 }
 
-/* tab content of tabs */
+
 .tab-content{
     display: none;
 }
@@ -118,7 +118,7 @@ input:focus{
     display: block;
 }
 
-/* actual tabs */x
+
 .tab{
     background-color: var(--white);
     margin: 1em 0;
