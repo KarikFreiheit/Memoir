@@ -3,26 +3,30 @@ baseCSS.rel = "stylesheet";
 baseCSS.type = "text/css";
 baseCSS.href = "base.css";
 let create = document.querySelector(".submit-button");
-const openModal = document.querySelectorAll(".list-element");
+const listItem = document.querySelectorAll(".list-element");
 const closeModal = document.querySelector(".closeModal");
 
-const modal = document.querySelector(".modal");
 
 
-openModal.forEach((item) => {
-  item.addEventListener("click", () => {
+//Modal
+listItem.forEach((item) => {
+  
+  item.querySelector(".open").addEventListener("click", () => {
+    item.querySelector(".modal").showModal;
+    item.querySelector(".modal").classList.add("display-modal");
     
-    modal.showModal();  
-    modal.classList.add("display-modal");
+  })  
 
+  closeModal.addEventListener("click", () => {
+
+      console.log("Working");
+      item.querySelector(".modal").close();
+      item.querySelector(".modal").classList.remove("display-modal");
+    
   })
 })
 
 
-closeModal.addEventListener("click", () => {
-  modal.close();
-  modal.classList.remove("display-modal");
-})
 
 
 

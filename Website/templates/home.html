@@ -83,6 +83,7 @@
         <ul class="note-list" id="notes">
             {% for note in user.notes%}
             <li class="list-element">
+              <div class="open">OPEN</div>
               <div class="list-element-grid"> 
                 <div class="title">{{note.data[:16]}}</div>
                 <p class="text-body"> {{note.body[:85]}} </p>
@@ -91,15 +92,15 @@
                 <div class="date"> {{note.date}}</div>
                 <button type="button" class="button-delete" onClick="deleteNote({{ note.id }})"><span aria-hidden="true">&times;</span></button>
               </div>
-              
+              <dialog class="modal">
+                <button class="closeModal">close modal</button> 
+                <div class=""> 
+                  <div class="title">{{note.data}}</div>
+                  <p class="text-body"> {{note.body}} </p>
+                </div>
+              </dialog>
             </li>
-            <dialog class="modal">
-              <button class="closeModal">close modal</button> 
-              <div class=""> 
-                <div class="title">{{note.data}}</div>
-                <p class="text-body"> {{note.body}} </p>
-              </div>
-            </dialog>
+           
           
             {% endfor %}
          
