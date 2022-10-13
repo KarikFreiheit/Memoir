@@ -12,7 +12,7 @@ import json
 @login_required
 def home():
     if request.method == 'POST':
-        note = request.form.get('note')
+        note = request.form.get('note') 
         date1 = request.form.get('date')
         body1 = request.form.get('body')
 
