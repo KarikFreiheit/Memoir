@@ -31,7 +31,7 @@ listItem.forEach((item) => {
 
 
 
-
+//Note Deletion
 function deleteNote(noteId) {
     fetch("/delete-note", {
       method: "POST",
@@ -46,7 +46,7 @@ function deleteNote(noteId) {
 
 
 
-
+//Basic Nav
   const nav = document.querySelector(".centerNav");
   const navIcon = document.querySelector(".nav-icon");
   let tabs = document.querySelectorAll(".tab");
@@ -98,6 +98,9 @@ function deleteNote(noteId) {
 
   });
 
+
+
+// Date auto entry
   let today = new Date().toISOString().substr(0, 10);
   document.querySelector("#date").value = today;
 
