@@ -17,7 +17,7 @@ listItem.forEach((item) => {
     
   })  
 
-  closeModal.addEventListener("click", () => {
+  item.querySelector(".closeModal").addEventListener("click", () => {
 
       console.log("Working");
       item.querySelector(".modal").close();
@@ -25,6 +25,7 @@ listItem.forEach((item) => {
     
   })
 })
+
 
 
 
