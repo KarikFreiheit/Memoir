@@ -3,87 +3,90 @@
 
 {% block content %}
 
-
-
-<h1>Memoir</h1>
 <div class="base">
-    
-
-    <div class="tab-list">
-        <div id="write" class="tab">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
-            <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
-          </svg>
-          </div>
-           <div id="view" class="tab is-active">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
-              <line x1="13" y1="8" x2="15" y2="8" />
-              <line x1="13" y1="12" x2="15" y2="12" />
-            </svg>
-          </div>
-          <div id="connection" class="tab">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
-              <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
-            </svg>
-          </div>
-          <div id="settings" class="tab">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-          </div>
-          <div id="share" class="tab">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-upload" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-              <polyline points="7 9 12 4 17 9" />
-              <line x1="12" y1="4" x2="12" y2="16" />
-            </svg>
-          </div>
-          <button class="submit-button" form="note-form" type="submit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-          </button>
-    </div>
-
-
-    
+<div class ="content">
     <div class="write tab-content"> 
         <form method="POST" id="note-form" class="form-100">
+         
           <div class="input-grid">
             <input type="text" name="note" id="note">
             <input type="date" name="date" id="date">
             <input type="text" name="body" id="body">
+            <input type="checkbox" class="heart-checkbox"  name="remember" id="favorite" >
+            <label class="shape" for="favorite">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path  stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path  class="path" d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </label>
             <br/>
           </div>
           
         </form>
     </div>
-
-
     <div class="view tab-content is-active">
-      <form class="sort">
+    
+      <form class="sort" action="{{url_for('views.sort')}}" method="POST"  >
           <select name="sort" id="sort">
-            <option value="{{latest}}">Latest</option>
-            <option value="{{oldest}}">Oldest</option>
+            {% if sort == False  %}
+            <option value="{{False}}" selected>False</option>
+            <option value ="{{True}}">True</option>
+            <option value ="{{All}}" >All</option>
+            {% elif sort == True %}
+            <option value="{{False}}">False</option>
+            <option value ="{{True}}" selected>True</option>
+            <option value ="{{All}}">All</option>
+            {% else %}
+            <option value="{{False}}">False</option>
+            <option value ="{{True}}">True</option>
+            <option value ="{{All}}"  selected>All</option>
+            {% endif %}
           </select>
-          <button type="submit">Apply filter</button>
+          <button type="submit"> Submit</button>
+
       </form>
 
-        <ul class="note-list" id="notes">
-            {% for note in user.notes%}
-            <li class="list-element">
+      {% for note in user.notes%}
+        <dialog class="modal">
+          <button class="closeModal">close modal</button>                 
+          <div class=""> 
+           <div class="title">{{note.data}}</div>
+              <p class="text-body"> {{note.body}} </p>
+            </div>
+        </dialog>
+        
+      {% endfor %}
+
+        <ul class="note-list line" id="notes">
+          {% for note in user.notes%}
+            {% if note.remember == sort %}
+
+              <li class="list-element">
+                <div class="favorite">{{note.remember}} </div>
+                <div class="list-element-grid"> 
+                  <div class="title">{{note.data[:16]}}</div>
+                  <p class="text-body"> {{note.body[:85]}} </p>
+                </div>
+                <div class="list-element-flex">
+                  <div class="date"> {{note.date}}</div>
+                  <div class = "v-flex">
+                  
+                    <button type="button" class="button-delete" onClick="deleteNote({{ note.id }})">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width54s="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
              
+            
+              </li>
+            {% elif sort != True and sort != False %}
+            
+            <li class="list-element">
+              <div class="favorite">{{note.remember}} </div>
               <div class="list-element-grid"> 
                 <div class="title">{{note.data[:16]}}</div>
                 <p class="text-body"> {{note.body[:85]}} </p>
@@ -91,16 +94,9 @@
               <div class="list-element-flex">
                 <div class="date"> {{note.date}}</div>
                 <div class = "v-flex">
-                  <div class="button-open">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
-                      <line x1="10" y1="14" x2="20" y2="4" />
-                      <polyline points="15 4 20 4 20 9" />
-                    </svg>
-                  </div>
+                
                   <button type="button" class="button-delete" onClick="deleteNote({{ note.id }})">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width54s="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
@@ -108,26 +104,14 @@
                   </button>
                 </div>
               </div>
-              <dialog class="modal">
-                <button class="closeModal">close modal</button> 
-                <div class=""> 
-                  <div class="title">{{note.data}}</div>
-                  <p class="text-body"> {{note.body}} </p>
-                </div>
-              </dialog>
-            </li>
            
           
-            {% endfor %}
+            </li>
+            {% endif %}  
+          {% endfor %}
          
         </ul>
     </div>
-
-
-
-
-
-    
     <div class="connection tab-content">
         
     </div>
@@ -137,6 +121,61 @@
     <div class="share tab-content">
         
     </div>
+  </div>
+  <div class="display-entry">
+
+
+
+
+  </div>
+  <div class="tab-list">
+    <div id="write" class="tab">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+        <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+      </svg>
+      </div>
+       <div id="view" class="tab is-active">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+          <line x1="13" y1="8" x2="15" y2="8" />
+          <line x1="13" y1="12" x2="15" y2="12" />
+        </svg>
+      </div>
+      <div id="connection" class="tab">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+          <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+        </svg>
+      </div>
+      <div id="settings" class="tab">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </div>
+      <div id="share" class="tab">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-upload" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+          <polyline points="7 9 12 4 17 9" />
+          <line x1="12" y1="4" x2="12" y2="16" />
+        </svg>
+      </div>
+      <button class="submit-button" form="note-form" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </button>
+  </div>
 </div>
+
+
 
 {% endblock %}

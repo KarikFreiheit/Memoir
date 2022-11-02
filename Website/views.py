@@ -32,13 +32,14 @@ def home():
         note = request.form.get('note') 
         date1 = request.form.get('date')
         body1 = request.form.get('body')
+        checked = request.form.get('remember')
 
+        selected = bool(checked)
     
-
         if len(note) < 1:
             flash('Note  is too short!', category='error')
         else:
-            new_note = Note(body = body1, date = date1, data=note, user_id=current_user.id)
+            new_note = Note(body = body1, date = date1, data=note, remember=selected, user_id=current_user.id)
             db.session.add(new_note)
             db.session.commit()
 
@@ -61,4 +62,15 @@ def delete_note():
     return jsonify({})
 
 
+@views.route('/sort', methods=['POST'])
+def sort():
+    sort = request.form.get('sort', type=str)
+    if(sort == "True"):
+        sort = True
+    elif (sort == "False"):
+        sort = False
+    else:
+        sort = None
+    
+    return render_template("home.html", user=current_user, sort=sort)
 
