@@ -2,6 +2,7 @@ from datetime import date
 from flask import Blueprint, current_app, redirect, render_template
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
+from sqlalchemy.sql import false
 from .models import Note
 from . import db
 views = Blueprint('views', __name__)
@@ -74,3 +75,21 @@ def sort():
     
     return render_template("home.html", user=current_user, sort=sort)
 
+
+@views.route('/favorite', methods=['POST'])
+def favorite():
+    print("YES")
+    heart = request.form.get('heart', type=bool)
+    note = json.loads(request.data)
+    if(heart == True):
+        heart = false
+        note.remember = False
+        db.session.commit()
+    else:
+        heart = True
+        note.remember = True
+        db.session.commit()
+
+    print(note.remember)
+
+    return render_template('home.html', user=current_user, heart=heart)
