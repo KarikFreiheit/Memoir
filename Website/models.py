@@ -9,6 +9,7 @@ class Note(db.Model):
     body = db.Column(db.String(10000))
     date = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    remember = db.Column(db.Boolean, default = False)
 
 
 class User(db.Model, UserMixin):
