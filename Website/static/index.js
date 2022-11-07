@@ -54,6 +54,7 @@ function deleteNote(noteId) {
 
 
 
+
 let tabs = document.querySelectorAll(".tab");
 let contents = document.querySelectorAll(".tab-content");
 

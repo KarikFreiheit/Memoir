@@ -76,20 +76,20 @@ def sort():
     return render_template("home.html", user=current_user, sort=sort)
 
 
-@views.route('/favorite', methods=['POST'])
-def favorite():
+@views.route('/favorite<int:noteid>', methods=['POST'])
+def favorite(noteid):
     print("YES")
     heart = request.form.get('heart', type=bool)
-    note = json.loads(request.data)
-    if(heart == True):
-        heart = false
+    sort = request.form.get('sort', type=str)
+    note = Note.query.get(noteid)
+    if(heart == True or note.remember == True):
         note.remember = False
         db.session.commit()
-    else:
-        heart = True
+    elif(heart == False or note.remember == False):
         note.remember = True
         db.session.commit()
 
     print(note.remember)
 
-    return render_template('home.html', user=current_user, heart=heart)
+    return render_template('home.html', user=current_user, sort=sort)
+

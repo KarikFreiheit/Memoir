@@ -78,13 +78,13 @@
 
               <li class="list-element">
                 <div class="favorite">
-                  <form  action="{{url_for('views.favorite')}}" method="POST"  name="heart">
+                  <form  action="{{url_for('views.favorite', noteid=note.id)}}" method="POST" name="heart">
                     {% if note.remember == True or heart == True %}
                     <input type="checkbox" checked class="heart-checkbox"  name="remember" id="favorite"  >
                     {% else %}
                     <input type="checkbox" class="heart-checkbox"  name="remember" id="favorite" >
                     {% endif %}
-                    <label class="shape" for="favorite" onclick="this.form.submit()" >
+                    <button class="shape" for="favorite"  onclick="this.form.submit()" >
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path  stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path  class="path" d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
@@ -92,7 +92,7 @@
                      <mask>
                       <circle cx="10" cy="10" r="22" id="mask"/>
                     </mask>
-                    </label> 
+                  </button> 
                   </form>
                 </div>
                 <div class="list-element-grid"> 
