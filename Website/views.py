@@ -99,7 +99,6 @@ def show(noteid):
     print("SHOW")
     note = Note.query.get(noteid)
 
-
     if(note.selected == False):
         note.selected = True
     else:
