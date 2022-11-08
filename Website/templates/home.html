@@ -76,7 +76,11 @@
           {% for note in user.notes%}
             {% if note.remember == sort or (sort != True and sort != False) %}
 
-              <li class="list-element">
+              <li class="list-element" >
+                <form action="{{url_for('views.show', noteid=note.id)}}" method="POST">
+                  <button onclick="this.form.submit()">view</button>
+
+                </form>
                 <div class="favorite">
                   <form  action="{{url_for('views.favorite', noteid=note.id)}}" method="POST" name="heart">
                     {% if note.remember == True or heart == True %}
@@ -88,10 +92,9 @@
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path  stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path  class="path" d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                
                      </svg>
-                     <mask>
-                      <circle cx="10" cy="10" r="22" id="mask"/>
-                    </mask>
+                     
                   </button> 
                   </form>
                 </div>
@@ -112,12 +115,16 @@
                     </button>
                   </div>
                 </div>
-             
+                
             
               </li>
             
             {% endif %}  
           {% endfor %}
+
+          
+
+
          
         </ul>
     </div>
@@ -134,7 +141,21 @@
   <div class="display-entry">
 
 
+  <div class="note-view">
 
+    {% for note in user.notes %}
+    {% if note.selected == true %}
+    <div class="list-element-grid"> 
+      <div class="title">{{note.data[:16]}}</div>
+      <div class="date">{{note.date}}</div>
+      <p class="text-body"> {{note.body[:85]}} </p>
+    </div>
+    {% endif %}
+    
+    {% endfor %}
+
+
+  </div>
 
   </div>
   <div class="tab-list">
