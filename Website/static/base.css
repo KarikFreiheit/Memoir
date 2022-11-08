@@ -234,7 +234,11 @@ button {
     border-radius: .5vh;
     height: 100px;
     transition: all 300ms;
-    mask: url(#mask);
+
+    
+}
+#mask{
+    background-color: var(--white);
 }
 .list-element:before {
     top: -20px;

@@ -35,8 +35,6 @@ const closeModal = document.querySelector(".closeModal");
 
 
 
-
-
 //Note Deletion
 function deleteNote(noteId) {
   fetch("/delete-note", {
@@ -48,6 +46,7 @@ function deleteNote(noteId) {
 
 
 }
+
 
 
 

@@ -3,7 +3,7 @@ from flask import Blueprint, current_app, redirect, render_template
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from sqlalchemy.sql import false
-from .models import Note
+from .models import Note, User
 from . import db
 views = Blueprint('views', __name__)
 import json
@@ -76,20 +76,34 @@ def sort():
     return render_template("home.html", user=current_user, sort=sort)
 
 
-@views.route('/favorite', methods=['POST'])
-def favorite():
+@views.route('/favorite<int:noteid>', methods=['POST'])
+def favorite(noteid):
     print("YES")
     heart = request.form.get('heart', type=bool)
-    note = json.loads(request.data)
-    if(heart == True):
-        heart = false
+    sort = request.form.get('sort', type=str)
+    note = Note.query.get(noteid)
+    
+    if(heart == True or note.remember == True):
         note.remember = False
         db.session.commit()
-    else:
-        heart = True
+    elif(heart == False or note.remember == False):
         note.remember = True
         db.session.commit()
 
     print(note.remember)
 
-    return render_template('home.html', user=current_user, heart=heart)
+    return render_template('home.html', user=current_user, sort=sort)
+
+@views.route('/show<int:noteid>', methods=['POST'])
+def show(noteid):
+    print("SHOW")
+    note = Note.query.get(noteid)
+
+
+    if(note.selected == False):
+        note.selected = True
+    else:
+        note.selected = False
+    db.session.commit()
+
+    return render_template('home.html', user=current_user)
