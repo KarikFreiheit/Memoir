@@ -1,7 +1,9 @@
 from datetime import date
+from operator import getitem
 from flask import Blueprint, current_app, redirect, render_template
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
+from sqlalchemy import inspect
 from sqlalchemy.sql import false
 from .models import Note, User
 from . import db
@@ -98,7 +100,10 @@ def favorite(noteid):
 def show(noteid):
     print("SHOW")
     note = Note.query.get(noteid)
+    for n in Note.query.all():
+        if(n.id != note):
 
+            n.selected = False
     if(note.selected == False):
         note.selected = True
     else:
