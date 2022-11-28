@@ -76,44 +76,51 @@
           {% for note in user.notes%}
             {% if note.remember == sort or (sort != True and sort != False) %}
 
-              <li class="list-element" >
-                <form action="{{url_for('views.show', noteid=note.id)}}" method="POST">
-                  <button onclick="this.form.submit()">view</button>
-
-                </form>
-                <div class="favorite">
-                  <form  action="{{url_for('views.favorite', noteid=note.id)}}" method="POST" name="heart">
-                    {% if note.remember == True or heart == True %}
-                    <input type="checkbox" checked class="heart-checkbox"  name="remember" id="favorite"  >
-                    {% else %}
-                    <input type="checkbox" class="heart-checkbox"  name="remember" id="favorite" >
-                    {% endif %}
-                    <button class="shape" for="favorite"  onclick="this.form.submit()" >
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path  stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path  class="path" d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              <li class="list-element" > 
                 
-                     </svg>
-                     
-                  </button> 
-                  </form>
-                </div>
                 <div class="list-element-grid"> 
                   <div class="title">{{note.data[:16]}}</div>
                   <p class="text-body"> {{note.body[:85]}} </p>
                 </div>
                 <div class="list-element-flex">
                   <div class="date"> {{note.date}}</div>
-                  <div class = "v-flex">
+                 
+                  
+                  <div class="favorite" >
+                    <form  action="{{url_for('views.favorite', noteid=note.id)}}" method="POST" name="heart">
+                      {% if note.remember == True or heart == True %}
+                      <input type="checkbox" checked class="heart-checkbox"  name="remember" id="favorite"  >
+                      {% else %}
+                      <input type="checkbox" class="heart-checkbox"  name="remember" id="favorite" >
+                      {% endif %}
+                      <button class="shape" for="favorite"  onclick="this.form.submit()" >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path  stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path  class="path" d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                        </svg>
+                      </button> 
+                    </form>
+                  </div>
                   
                     <button type="button" class="button-delete" onClick="deleteNote({{ note.id }})">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width54s="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
                       </svg>
                     </button>
-                  </div>
+
+                  
+                  
+                  <form action="{{url_for('views.entry', noteid=note.id)}}" method="POST" id="view-note" name="one">
+                    <button onsubmit="this.form.submit()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="13" y1="18" x2="19" y2="12" />
+                        <line x1="13" y1="6" x2="19" y2="12" />
+                      </svg>
+                    </button>
+                  </form>
                 </div>
                 
             
@@ -129,7 +136,7 @@
         </ul>
     </div>
     <div class="connection tab-content">
-        
+      
     </div>
     <div class="setting tab-content">
         
@@ -159,7 +166,7 @@
 
   </div>
   <div class="tab-list">
-    <div id="write" class="tab">
+    <div id="write" class="tab" href="">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -167,7 +174,7 @@
       </svg>
       </div>
        <div id="view" class="tab is-active">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler cdicon-tabler-notebook" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
           <line x1="13" y1="8" x2="15" y2="8" />

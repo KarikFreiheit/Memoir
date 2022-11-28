@@ -38,7 +38,7 @@ def home():
         checked = request.form.get('remember')
 
         selected = bool(checked)
-    
+        
         if len(note) < 1:
             flash('Note  is too short!', category='error')
         else:
@@ -96,8 +96,8 @@ def favorite(noteid):
 
     return render_template('home.html', user=current_user, sort=sort)
 
-@views.route('/show<int:noteid>', methods=['POST'])
-def show(noteid):
+@views.route('/entry-<int:noteid>', methods=['POST'])
+def entry(noteid):
     print("SHOW")
     note = Note.query.get(noteid)
     for n in Note.query.all():

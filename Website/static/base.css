@@ -113,10 +113,48 @@ body {
 
 }
 .favorite{
-    position: relative;
-    transform: scale(.83, .83);
-    top: 3px;
-    left: -5px;
+    border: none;
+    
+    background-color: var(--bwhite);
+    text-align: center;
+    width: 50px;
+    height: 100%;
+}
+.favorite:hover {
+    background-color: var(--hover);
+}
+
+.favorite:focus {
+    all: unset;
+    border: none;
+    
+    background-color: var(--hover);
+    width: 50px;
+    height: 100%;
+    text-align: center;
+}
+#view-note{
+    border: none;
+    border-radius: 0 .5vh .5vh 0;
+    background-color: var(--bwhite);
+    text-align: center;
+    width: 50px;
+    height: 100%;
+    
+}
+
+#view-note:hover {
+    background-color: var(--hover);
+}
+
+#view-note:focus {
+    all: unset;
+    border: none;
+    border-radius: 0 .5vh .5vh 0;
+    background-color: var(--hover);
+    width: 50px;
+    height: 100%;
+    text-align: center;
 }
 svg {
     transition: all 150ms ease-out;
@@ -299,12 +337,20 @@ button {
     font-size: var(--font-normal);
     justify-content: center;
     align-items: center;
-    ;
+    
+}
+
+.inherit{
+   
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    background-color: red;
 }
 
 .button-delete {
     border: none;
-    border-radius: 0 .5vh .5vh 0;
     background-color: var(--bwhite);
     text-align: center;
     width: 50px;
@@ -318,7 +364,6 @@ button {
 .button-delete:focus {
     all: unset;
     border: none;
-    border-radius: 0 .5vh .5vh 0;
     background-color: var(--hover);
     width: 50px;
     height: 100%;
@@ -374,8 +419,6 @@ button {
 }
 
 .submit-button {
-    all: unset;
-    display: none;
     border-radius: 50%;
     background-color: var(white);
     width: 50px;
