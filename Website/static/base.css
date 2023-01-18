@@ -3,6 +3,7 @@
     --bwhite: rgb(252, 252, 252);
     --black: rgb(23, 23, 23);
     --mint: rgba(145, 245, 173, .75);
+    --red: rgb(245, 145,173);
     --hover: rgb(230, 230, 230);
 
     --font-main: 'Poppins', sans-serif;
@@ -46,10 +47,20 @@ h1 {
     gap: 5em;
 }
 
-a,
+a{
+    color: var(--black);
+    
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: var(--font-normal);
+    font-weight: 400;
+    font-style: normal;
+    
+}
 a:hover,
 a:focus {
-    color: var(--black);
+    color: rgb(100, 100,100);
+    
     text-decoration: none;
     font-family: var(--font-main);
     font-size: var(--font-normal);
@@ -58,23 +69,18 @@ a:focus {
 }
 
 .nav-item {
-    background-color: var(--bwhite);
-    padding-top: .5em;
-    padding-bottom: .5em;
-
-    padding-inline: 3px;
     border-radius: .5vh;
+    
 
 }
 
 .nav-item:hover {
-    background-color: var(--hover);
     border-radius: .5vh;
 }
 
 
 body {
-    background-color: var(--white);
+    background-color: var(--bwhite);
 
 }
 
@@ -88,7 +94,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    background-color: var(--white);
+    background-color: var(--bwhite);
 }
 
 .content {
@@ -100,6 +106,8 @@ body {
     width: 60rem;
     background-color: var(--bwhite);
     border-radius: 26px 0px 0px 26px;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
+
 
 }
 
@@ -115,14 +123,9 @@ body {
 .favorite{
     border: none;
     
-    background-color: var(--bwhite);
-    text-align: center;
-    width: 50px;
-    height: 100%;
+   
 }
-.favorite:hover {
-    background-color: var(--hover);
-}
+
 
 .favorite:focus {
     all: unset;
@@ -138,13 +141,43 @@ body {
     border-radius: 0 .5vh .5vh 0;
     background-color: var(--bwhite);
     text-align: center;
-    width: 50px;
+    min-width: 50px;
     height: 100%;
-    
+    transition: all 300ms ease-in;
+
+}
+.view-title{
+    border-radius: 0 .5vh .5vh 0;
+    text-align: center;
+    min-width: 50px;
+    font-family: var(--font-main);
+    font-size: var(--font-large);
+    font-weight: var(--font-bold);
+}
+.view-text-body{
+    width: 700px;
+    height: 600px;
+    overflow-wrap:break-word;
+    overflow-y: scroll;
+    text-align: left;
+    margin: 50px;
+    font-family: var(--font-main);
+    font-size: var(--font-medium);
+    font-weight: var(--font-normal);
+
+}
+.view-date{
+    border-radius: 0 .5vh .5vh 0;
+    background-color: var(--bwhite);
+    text-align: center;
+    min-width: 50px;
+    font-family: var(--font-main);
+    font-size: var(--font-small);
+    font-weight: var(--font-bold);
 }
 
 #view-note:hover {
-    background-color: var(--hover);
+    background-color: var(--mint);
 }
 
 #view-note:focus {
@@ -155,6 +188,10 @@ body {
     width: 50px;
     height: 100%;
     text-align: center;
+}
+#view-note > button{
+    width:100%;
+    height: 100%;
 }
 svg {
     transition: all 150ms ease-out;
@@ -267,8 +304,9 @@ button {
     align-items: center;
     list-style-type: none;
     background-color: var(--bwhite);    
-    padding-left: 1em;
-    margin: 2em 2em 2em 0em;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
+        padding-left: 1em;
+    margin: 0em 2em 2em 0em;
     border-radius: .5vh;
     height: 100px;
     transition: all 300ms;
@@ -325,7 +363,23 @@ button {
     width: 100%;
 
 }
+select{
+    font-family: var(--font-main);
+    font-weight: var(--font-thin);
+    font-size: var(--font-small);
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
+    border: none;
+    margin: 3em;
+    
+}
+select > option{
+    font-family: var(--font-main);
+    font-weight: var(--font-thin);
+    font-size: var(--font-small);
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
 
+    border: none;
+}
 .date {
     display: flex;
     border-right: 1px solid var(--black);
@@ -353,12 +407,14 @@ button {
     border: none;
     background-color: var(--bwhite);
     text-align: center;
-    width: 50px;
+    min-width: 50px;
     height: 100%;
+    transition: all 300ms ease-in;
 }
 
 .button-delete:hover {
-    background-color: var(--hover);
+    background-color: var(--red);
+
 }
 
 .button-delete:focus {
@@ -369,14 +425,7 @@ button {
     height: 100%;
     text-align: center;
 }
-.line{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-left: 3px black solid;
-    stroke: red;
-    stroke: 5px;
-    stroke-linecap: round;
-}
+
 #note {
     grid-area: a;
     font-size: var(--font-medium);
@@ -405,11 +454,14 @@ button {
     height: inherit;
     width: inherit;
     display: grid;
+    border-radius: .5vh .5vh .5vh .5vh;
+
     grid-template-areas:
         "a"
         "b"
         "c";
     margin: 2em;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
 }
 
 .form-100 {
@@ -436,11 +488,8 @@ button {
 .submit-button:hover {
 
     all: unset;
-    border-radius: 50%;
     background-color: var(--mint);
-    width: 50px;
-    height: 50px;
-    text-align: center;
+    
 
 }
 
