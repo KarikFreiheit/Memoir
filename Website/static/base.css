@@ -122,7 +122,8 @@ body {
 }
 .favorite{
     border: none;
-    
+    position: relative;
+    right: 10px;
    
 }
 
@@ -197,6 +198,7 @@ svg {
     transition: all 150ms ease-out;
 }
 
+
 .heart-checkbox:checked+.shape>svg>.path {
     fill: red;
     opacity: 1;
@@ -213,10 +215,13 @@ svg {
 
 input {
     all: unset;
+    margin: 5px;
 }
 
 input:focus {
     all: unset;
+    background-color: var(--white);
+    margin: 5px;
 
 }
 
@@ -439,6 +444,7 @@ select > option{
     font-weight: var(--font-normal);
     font-family: var(--font-main);
     padding-inline: 3px;
+    width: 150px;
 
 }
 
@@ -446,8 +452,15 @@ select > option{
     grid-area: c;
     border-radius: .5vh;
     padding-inline: 3px;
-
+    
 }
+
+.more{
+    position: relative;
+    left: 780px;
+    width: 100%;
+}
+
 
 
 .input-grid {
@@ -471,6 +484,7 @@ select > option{
 }
 
 .submit-button {
+    
     border-radius: 50%;
     background-color: var(white);
     width: 50px;
@@ -487,7 +501,6 @@ select > option{
 
 .submit-button:hover {
 
-    all: unset;
     background-color: var(--mint);
     
 
