@@ -507,7 +507,11 @@ select > option{
 }
 
 .submit-button:focus {
-    box-shadow: 0%;
+    border-radius: 50%;
+    width: 50px;
+    text-align: center;
+    transition: all;
+    height: 50px;
     background-color: var(--hover);
 
 }
