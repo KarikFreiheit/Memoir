@@ -2,20 +2,21 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<form method="POST">
-    <h3 align="center">Login</h3>
-    <div class="">
+<link rel="stylesheet" type="text/css" href="static/login.css">
+<form class="border" method="POST">
+    <h3 class="center">Login</h3>
+    <div class="form-100">
         <label for="email">Email Address</label>
         <input type="email" class="" id="email" name="email" placeholder="Enter email"/>
         
     </div>
-    <div class="">
+    <div class="form-100">
         <label for="password">Password</label>
         <input type="password" class="" id="password" name="password" placeholder="Enter a Password"/>
         
     </div>
    
     <br />
-    <button type="submit" class="">Login</button>
+    <button type="submit" class="login-button">Login</button>
 </form>
 {% endblock %}

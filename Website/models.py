@@ -11,7 +11,7 @@ class Note(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     remember = db.Column(db.Boolean, default = False)
     selected = db.Column(db.Boolean, default = False)
-
+    signature = db.Column
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

@@ -3,6 +3,7 @@
     --bwhite: rgb(252, 252, 252);
     --black: rgb(23, 23, 23);
     --mint: rgba(145, 245, 173, .75);
+    --red: rgb(245, 145,173);
     --hover: rgb(230, 230, 230);
 
     --font-main: 'Poppins', sans-serif;
@@ -44,12 +45,28 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 5em;
+    border-radius: 0 0 2.5vh 2.5vh;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
+    max-width: max-content;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
 }
 
-a,
+a{
+    color: var(--black);
+    
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: var(--font-normal);
+    font-weight: 400;
+    font-style: normal;
+    
+}
 a:hover,
 a:focus {
-    color: var(--black);
+    color: rgb(100, 100,100);
+    
     text-decoration: none;
     font-family: var(--font-main);
     font-size: var(--font-normal);
@@ -58,23 +75,18 @@ a:focus {
 }
 
 .nav-item {
-    background-color: var(--bwhite);
-    padding-top: .5em;
-    padding-bottom: .5em;
-
-    padding-inline: 3px;
     border-radius: .5vh;
+    
 
 }
 
 .nav-item:hover {
-    background-color: var(--hover);
     border-radius: .5vh;
 }
 
 
 body {
-    background-color: var(--white);
+    background-color: var(--bwhite);
 
 }
 
@@ -88,7 +100,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    background-color: var(--white);
+    background-color: var(--bwhite);
 }
 
 .content {
@@ -100,6 +112,8 @@ body {
     width: 60rem;
     background-color: var(--bwhite);
     border-radius: 26px 0px 0px 26px;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
+    height: 45rem;
 
 }
 
@@ -113,14 +127,83 @@ body {
 
 }
 .favorite{
+    border: none;
     position: relative;
-    transform: scale(.83, .83);
-    top: 3px;
-    left: -5px;
+    right: 10px;
+   
+}
+
+
+.favorite:focus {
+    all: unset;
+    border: none;
+    
+    background-color: var(--hover);
+    width: 50px;
+    height: 100%;
+    text-align: center;
+}
+#view-note{
+    border: none;
+    border-radius: 0 .5vh .5vh 0;
+    background-color: var(--bwhite);
+    text-align: center;
+    min-width: 50px;
+    height: 100%;
+    transition: all 300ms ease-in;
+
+}
+.view-title{
+    border-radius: 0 .5vh .5vh 0;
+    text-align: center;
+    min-width: 50px;
+    font-family: var(--font-main);
+    font-size: var(--font-large);
+    font-weight: var(--font-bold);
+}
+.view-text-body{
+    width: 700px;
+    height: 600px;
+    overflow-wrap:break-word;
+    overflow-y: scroll;
+    text-align: left;
+    margin: 50px;
+    font-family: var(--font-main);
+    font-size: var(--font-medium);
+    font-weight: var(--font-normal);
+
+}
+.view-date{
+    border-radius: 0 .5vh .5vh 0;
+    background-color: var(--bwhite);
+    text-align: center;
+    min-width: 50px;
+    font-family: var(--font-main);
+    font-size: var(--font-small);
+    font-weight: var(--font-bold);
+}
+
+#view-note:hover {
+    background-color: var(--mint);
+}
+
+#view-note:focus {
+    all: unset;
+    border: none;
+    border-radius: 0 .5vh .5vh 0;
+    background-color: var(--hover);
+    width: 50px;
+    height: 100%;
+    text-align: center;
+}
+#view-note > button{
+    width:100%;
+    height: 100%;
 }
 svg {
     transition: all 150ms ease-out;
 }
+
 
 .heart-checkbox:checked+.shape>svg>.path {
     fill: red;
@@ -138,10 +221,13 @@ svg {
 
 input {
     all: unset;
+    margin: 5px;
 }
 
 input:focus {
     all: unset;
+    background-color: var(--white);
+    margin: 5px;
 
 }
 
@@ -169,13 +255,14 @@ button {
 .tab-content {
     display: none;
     max-height: inherit;
+    
 
 }
 
 .tab-content.is-active {
     display: block;
     max-height: inherit;
-
+   
     position: inherit;
 }
 
@@ -229,8 +316,9 @@ button {
     align-items: center;
     list-style-type: none;
     background-color: var(--bwhite);    
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
     padding-left: 1em;
-    margin: 2em 2em 2em 0em;
+    margin: 0em 2em 2em 0em;
     border-radius: .5vh;
     height: 100px;
     transition: all 300ms;
@@ -287,7 +375,23 @@ button {
     width: 100%;
 
 }
+select{
+    font-family: var(--font-main);
+    font-weight: var(--font-thin);
+    font-size: var(--font-small);
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.19);
+    border: none;
+    margin: 3em;
+    
+}
+select > option{
+    font-family: var(--font-main);
+    font-weight: var(--font-thin);
+    font-size: var(--font-small);
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
 
+    border: none;
+}
 .date {
     display: flex;
     border-right: 1px solid var(--black);
@@ -299,39 +403,41 @@ button {
     font-size: var(--font-normal);
     justify-content: center;
     align-items: center;
-    ;
+    
+}
+
+.inherit{
+   
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    background-color: red;
 }
 
 .button-delete {
     border: none;
-    border-radius: 0 .5vh .5vh 0;
     background-color: var(--bwhite);
     text-align: center;
-    width: 50px;
+    min-width: 50px;
     height: 100%;
+    transition: all 300ms ease-in;
 }
 
 .button-delete:hover {
-    background-color: var(--hover);
+    background-color: var(--red);
+
 }
 
 .button-delete:focus {
     all: unset;
     border: none;
-    border-radius: 0 .5vh .5vh 0;
     background-color: var(--hover);
     width: 50px;
     height: 100%;
     text-align: center;
 }
-.line{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-left: 3px black solid;
-    stroke: red;
-    stroke: 5px;
-    stroke-linecap: round;
-}
+
 #note {
     grid-area: a;
     font-size: var(--font-medium);
@@ -345,6 +451,7 @@ button {
     font-weight: var(--font-normal);
     font-family: var(--font-main);
     padding-inline: 3px;
+    width: 150px;
 
 }
 
@@ -352,30 +459,34 @@ button {
     grid-area: c;
     border-radius: .5vh;
     padding-inline: 3px;
-
+    
 }
+
+.more{
+    position: relative;
+    left: 780px;
+    width: 100%;
+}
+
 
 
 .input-grid {
     height: inherit;
     width: inherit;
     display: grid;
+    border-radius: .5vh .5vh .5vh .5vh;
+
     grid-template-areas:
         "a"
         "b"
         "c";
     margin: 2em;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
 }
 
-.form-100 {
-    height: inherit;
-    width: inherit;
-
-}
 
 .submit-button {
-    all: unset;
-    display: none;
+    
     border-radius: 50%;
     background-color: var(white);
     width: 50px;
@@ -392,17 +503,17 @@ button {
 
 .submit-button:hover {
 
-    all: unset;
-    border-radius: 50%;
     background-color: var(--mint);
-    width: 50px;
-    height: 50px;
-    text-align: center;
+    
 
 }
 
 .submit-button:focus {
-    box-shadow: 0%;
+    border-radius: 50%;
+    width: 50px;
+    text-align: center;
+    transition: all;
+    height: 50px;
     background-color: var(--hover);
 
 }
@@ -433,3 +544,4 @@ dialog::backdrop {
 .display-modal {
     display: block;
 }
+
