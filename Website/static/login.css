@@ -1,0 +1,84 @@
+input {
+    all: unset;
+    margin: 5px;
+}
+
+input:focus {
+    all: unset;
+    background-color: var(--white);
+    margin: 5px;
+
+}
+
+button:focus {
+    all: unset;
+}
+
+button {
+    all: unset;
+}
+
+
+.center{
+    text-align: left;
+    margin-top: 10px;
+    
+}
+
+.form-100{
+
+    margin-inline: 40px;
+    margin-top: 20px;
+}
+.login-button {
+    
+    border-radius: .5vh .5vh .5vh .5vh;
+    background-color: var(white);
+    box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.19);
+    width: 75px;
+    height: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.login-button>svg {
+    width: 35px;
+    height: 35px;
+}
+
+.login-button:hover {
+
+    background-color: var(--hover);
+
+}
+
+.login-button:focus {
+    border-radius: .5vh .5vh .5vh .5vh;
+    width: 75px;
+    text-align: center;
+    transition: all;
+    height: 40px;
+    background-color: var(--hover);
+    margin-bottom: 20px;
+
+
+}
+
+.border{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    height: max-content;
+    width: 600px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2.5vh 2.5vh 2.5vh 2.5vh;
+    box-shadow: 0px 0px 30px -7px rgba(0,0,0,0.19);
+
+}

@@ -138,7 +138,7 @@
     {% for note in user.notes %}
     {% if note.selected == true %}
     <div class="list-element-grid"> 
-      <div class="view-title">{{note.data[:16]}}</div>
+      <div class="view-title">{{note.data}}</div>
       <div class="view-date">{{note.date}}</div>
       <p class="view-text-body"> {{note.body}} </p>
     </div>
