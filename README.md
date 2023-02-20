@@ -2,4 +2,4 @@
 �
 �
 
-PNG's on the main page are examples of the UI
+PNG's on the main branch are examples of the UI
